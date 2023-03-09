@@ -1,0 +1,54 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: rgb(32, 68, 80);
+  color: white;
+}
+
+nav {
+  background: rgb(64, 144, 170);
+}
+
+h1 {
+  padding: 1rem;
+}
+
+#app-div {
+  margin: 1em auto;
+  text-align: center;
+}
+
+p {
+  max-width: 450px;
+  line-height: 1.5rem;
+  margin: 20px auto;
+}
+
+input {
+  height: 35px;
+  border: 1px solid #777;
+  border-radius: 5px;
+  padding: 5px;
+  margin-right: 10px;
+}
+
+.input-btn {
+  height: 35px;
+  background: #123a86;
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+  color: white;
+}
+
+.input-btn:hover {
+  background: #299b75;
+}
+
+h2 {
+  padding-top: 2rem;
+}

@@ -1,25 +1,46 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Header from "./components/Header";
+import Age from "./components/Age";
 
-function App() {
+export default function App() {
+  const [age, setAge] = React.useState({
+    userAge: "",
+  });
+
+  const [weeks, setWeeks] = React.useState("");
+
+  function updateAge(e) {
+    setAge({ userAge: e.target.value });
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    const weeksLeft = Math.floor((90 - age.userAge) * 52);
+    setWeeks((prev) => {
+      return [...prev, weeksLeft];
+    });
+  }
+
+  React.useEffect(() => {
+    if(weeks !== ""){
+      setTimeout(clear, 5000);
+    }
+  }, [weeks]);
+
+  function clear() {
+    setAge({userAge: ""});
+    setWeeks("");
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Header />
+      <Age
+        update={updateAge}
+        age={age.userAge}
+        handleSubmit={handleSubmit}
+        weeks={weeks}
+      />
     </div>
   );
 }
-
-export default App;
